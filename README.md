@@ -6,25 +6,12 @@
 - Bootstrap new master and slaves.
 - Install percona xtradb scripts and services. (@see https://github.com/olafz/percona-clustercheck)
 
----
+Requirements
+------------
+
+Ansible >= 2.4
 
 ## Role Variables
-
-### Passwords
-**vars/main.yml**
-
-* galera_root_pasword
-* galera_sys_maint_password
-* galera_clustercheck_password
-
-
-I recommend placing the following variables in a file located in a subdirectory named after your target group in **group_vars**. (e.g. group_vars/galera_cluster_node/vault). Be sure to encrypt the file using ansible-vault and add the file name to your .gitignore file.
-
-```ansible
-vault_galera_root_password: "somepassword"
-vault_galera_sys_maint_password: "anotherpasswd"
-vault_galera_clustercheck_password: "strongpasswd"
-```
 
 **defaults/main.yml**
 
@@ -40,6 +27,22 @@ galera_cluster_name: "galera"
 galera_bind_address: "0.0.0.0"
 galera_manage_users: "True"
 galera_gcomm_address:
+```
+
+**vars/main.yml**
+
+```ansible
+galera_root_pasword: "{{ vault_galera_root_pasword }}"
+galera_sys_maint_password: "{{ vault_galera_sys_maint_password }}"
+galera_clustercheck_password: "{{ vault_galera_clustercheck_password }}"
+```
+
+I recommend placing the following variables in a file located in a subdirectory named after your target group in **group_vars**. (e.g. group_vars/galera_cluster_node/vault). Be sure to encrypt the file using ansible-vault and add the file name to your .gitignore file.
+
+```ansible
+vault_galera_root_password: "<somepassword>"
+vault_galera_sys_maint_password: "<anotherpasswd>"
+vault_galera_clustercheck_password: "<strongpasswd>"
 ```
 
 ### Host vars
@@ -65,7 +68,6 @@ Enable `galera_haproxy_user`-> True.
 
 ## Dependencies
 
-ansible >= 2.4  
 cmndrsp0ck.galera-lb
 
 ---
