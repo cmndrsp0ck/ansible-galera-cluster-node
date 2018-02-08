@@ -1,10 +1,10 @@
-# MariaDB Galera Cluster
+# galera-cluster-node
 
 ### Features
 
-- Setup mariadb galera cluster.
-- Bootstrap new master and slaves.
-- Install percona xtradb scripts and services. (@see https://github.com/olafz/percona-clustercheck)
+* Setup mariadb galera cluster.
+* Bootstrap new master and slaves.
+* Install percona xtradb scripts and services. (@see https://github.com/olafz/percona-clustercheck)
 
 Requirements
 ------------
@@ -94,7 +94,7 @@ box3.mariadb galera_node_ip=10.0.1.25
   order: inventory
   tasks:
     - import_role:
-        name: cmndrsp0ck.galera-cluster
+        name: cmndrsp0ck.galera-cluster-node
 ```
 
 ### License
