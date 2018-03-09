@@ -1,4 +1,4 @@
-# galera-cluster-node
+# ansible-galera-cluster-node
 
 ### Features
 
@@ -94,7 +94,7 @@ box3.mariadb galera_node_ip=10.0.1.25
   order: inventory
   tasks:
     - import_role:
-        name: cmndrsp0ck.galera-cluster-node
+        name: cmndrsp0ck.ansible-galera-cluster-node
 ```
 
 ### License
