@@ -1,4 +1,4 @@
-# ansible-galera-cluster-node
+
 
 ### Features
 
@@ -68,7 +68,7 @@ Enable `galera_haproxy_user`-> True.
 
 ## Dependencies
 
-cmndrsp0ck.galera-lb
+ansible-galera-lb
 
 ---
 ## Example
@@ -94,7 +94,7 @@ box3.mariadb galera_node_ip=10.0.1.25
   order: inventory
   tasks:
     - import_role:
-        name: cmndrsp0ck.ansible-galera-cluster-node
+        name: ansible-galera-cluster-node
 ```
 
 ### License
